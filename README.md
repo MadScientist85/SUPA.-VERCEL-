@@ -1,5 +1,6 @@
 <h1 align="center">Enhanced AI Chat Platform</h1>
 </a>
+
 <a href="https://chat.vercel.ai/">
   <img alt="Next.js 15 and App Router-ready AI chatbot with multi-provider support." src="app/(chat)/opengraph-image.png">
   
