@@ -1,0 +1,40 @@
+// Additional tables for enhanced features
+
+export const modelUsage = pgTable('ModelUsage', {
+  id: uuid('id').primaryKey().notNull().defaultRandom(),
+  userId: uuid('userId')
+    .notNull()
+    .references(() => user.id),
+  modelId: varchar('modelId').notNull(),
+  inputTokens: integer('inputTokens').notNull(),
+  outputTokens: integer('outputTokens').notNull(),
+  cost: decimal('cost', { precision: 10, scale: 6 }),
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+});
+
+export const guardrailLog = pgTable('GuardrailLog', {
+  id: uuid('id').primaryKey().notNull().defaultRandom(),
+  userId: uuid('userId')
+    .notNull()
+    .references(() => user.id),
+  chatId: uuid('chatId').references(() => chat.id),
+  action: varchar('action', { enum: ['blocked', 'modified', 'allowed'] }).notNull(),
+  reason: text('reason'),
+  originalContent: text('originalContent'),
+  modifiedContent: text('modifiedContent'),
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+});
+
+export const integration = pgTable('Integration', {
+  id: uuid('id').primaryKey().notNull().defaultRandom(),
+  userId: uuid('userId')
+    .notNull()
+    .references(() => user.id),
+  type: varchar('type', { 
+    enum: ['search', 'image_generation', 'email', 'storage'] 
+  }).notNull(),
+  config: jsonb('config').notNull(),
+  enabled: boolean('enabled').notNull().default(true),
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+  updatedAt: timestamp('updatedAt').notNull().defaultNow(),
+});
