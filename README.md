@@ -1,7 +1,8 @@
+<h1 align="center">Enhanced AI Chat Platform</h1>
+</a>
 <a href="https://chat.vercel.ai/">
   <img alt="Next.js 15 and App Router-ready AI chatbot with multi-provider support." src="app/(chat)/opengraph-image.png">
-  <h1 align="center">Enhanced AI Chat Platform</h1>
-</a>
+  
 
 <p align="center">
     A superior alternative to v0.dev and Vercel Chat - an enterprise-grade, open-source AI chat platform built with Next.js 15 and the AI SDK. Features multi-provider support, advanced guardrails, and supreme coding capabilities with an OCD-level attention to completeness and correctness.
